@@ -205,9 +205,9 @@ export class FixedReader extends Reader {
 
   @inline
   private inc(step: u32 = 1): usize {
+    assert(this.ptr <= this.end, "Index out of range");
     const ptr = this.ptr;
     this.ptr += step;
-    assert(this.ptr <= this.end, "Index out of range");
 
     return ptr;
   }

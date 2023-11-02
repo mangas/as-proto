@@ -19,8 +19,7 @@ test("encodes to the exactly the same bytes", (t) => {
 });
 
 test("decodes broken stuff", (t) => {
-  debugger;
-  decodeBlockJS();
-  // decodeBlockAndReceipt();
-  t.deepEqual(true, true)
+  // decodeBlockJS();
+  const receipt = decodeBlockAndReceipt();
+  t.deepEqual(true, true);
 })

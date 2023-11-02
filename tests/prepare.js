@@ -7,10 +7,10 @@ const cwd = url.fileURLToPath(new URL(".", import.meta.url));
 
 // generate AssemblyScript files
 console.log("Generating AssemblyScript protobuf files...");
-execSync(
-  "protoc --plugin='protoc-gen-as=../packages/as-proto-gen/bin/as-proto-gen' --as_out='./assembly' ./proto/*.proto",
-  { cwd: cwd, stdio: "pipe" }
-);
+// execSync(
+//   "protoc --plugin='protoc-gen-as=../packages/as-proto-gen/bin/as-proto-gen' --as_out='./assembly' ./proto/*.proto --descriptor_set_out=./assembly/proto.pb --include_imports --include_source_info",
+//   { cwd: cwd, stdio: "pipe" }
+// );
 // build AssemblyScript test files
 console.log("Building AssemblyScript test files...");
 const asDirectory = path.join(cwd, "assembly");

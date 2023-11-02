@@ -1,5 +1,5 @@
 import "./proto/testbinary_pb.cjs";
-import "./proto/receipts_pb.cjs"
+// import "./proto/receipts_pb.cjs"
 import assert from "node:assert/strict";
 
 export function encode() {

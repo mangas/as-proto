@@ -25,7 +25,9 @@ export class BlockAndReceipts {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          console.log("#### 1");
           message.block = Block.decode(reader, reader.uint32());
+          console.log(`#### 2: ${message.block == null}`);
           break;
 
         default:
