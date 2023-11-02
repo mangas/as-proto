@@ -1,6 +1,7 @@
 {
   "options": {
     "sourceMap": true,
+    "debug": true,
     "optimizeLevel": 3,
     "runtime": "incremental",
     "converge": false,
