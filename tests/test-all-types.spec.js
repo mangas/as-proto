@@ -2,9 +2,8 @@ import test from "ava";
 import {
   encode as encodeWasm,
   decode as decodeWasm,
-  decodeBlockAndReceipt,
 } from "./assembly/test-all-types.js";
-import { encode as encodeJs, decode as decodeJs, decodeBlockAndReceipt as decodeBlockJS } from "./js/test-all-types.js";
+import { encode as encodeJs, decode as decodeJs } from "./js/test-all-types.js";
 
 test("serializes to the same format as official implementation", (t) => {
   t.is(decodeJs(encodeWasm()), true);
