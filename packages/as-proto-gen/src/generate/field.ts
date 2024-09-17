@@ -75,12 +75,12 @@ export function generateFieldEncodeInstruction(
               ${encodeInstruction(keyVariable, keyDescriptor)};
               writer.uint32(${valueTag});
               ${forkInstruction(
-                `${encodeInstruction(
-                  `${fieldVariable}.get(${keyVariable})`,
-                  valueDescriptor
-                )};`,
-                isValueMessage
-              )}
+        `${encodeInstruction(
+          `${fieldVariable}.get(${keyVariable})`,
+          valueDescriptor
+        )};`,
+        isValueMessage
+      )}
             `)}
           }
         }
@@ -158,7 +158,7 @@ export function generateFieldDecodeInstruction(
 ): string {
   const isRepeated = fieldDescriptor.getLabel() === Label.LABEL_REPEATED;
   const isMessage = fieldDescriptor.getType() === Type.TYPE_MESSAGE;
-  const isPacked = fieldDescriptor.getOptions()?.hasPacked();
+  const isPacked = fieldDescriptor.getOptions()?.getPacked();
 
   const fieldNumber = fieldDescriptor.getNumber();
   assert.ok(fieldNumber !== undefined);

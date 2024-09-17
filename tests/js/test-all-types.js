@@ -1,4 +1,5 @@
 import "./proto/testbinary_pb.cjs";
+import "./proto/test3_pb.cjs";
 import assert from "node:assert/strict";
 
 export function encode() {
@@ -84,3 +85,19 @@ export function decode(bytes) {
 
   return true;
 }
+
+export function encodeProto3() {
+  const { TestAllTypes, ImportMessage, ImportEnum } = global.proto.goproto.proto.test3;
+
+  const message = new TestAllTypes();
+  return message.serializeBinary();
+}
+
+export function decodeProto3(bytes) {
+
+  const { TestAllTypes, ImportMessage, ImportEnum } = global.proto.goproto.proto.test3;
+  const message = TestAllTypes.deserializeBinary(bytes);
+
+  return true;
+}
+

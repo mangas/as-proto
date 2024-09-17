@@ -1,6 +1,9 @@
 import { TestAllTypes } from "./asproto/test/TestAllTypes";
+import { TestAllTypes as TestAllTypes3 } from "./goproto/proto/test3/TestAllTypes";
 import { ForeignEnum } from "./asproto/test/ForeignEnum";
 import { ForeignMessage } from "./asproto/test/ForeignMessage";
+// import { ForeignEnum3 } from "./asproto/test3/ForeignEnum";
+// import { ForeignMessage3 } from "./asproto/test3/ForeignMessage";
 import { Protobuf } from "as-proto/assembly";
 
 export function encode(): Uint8Array {
@@ -96,6 +99,21 @@ export function decode(bytes: Uint8Array): boolean {
   assert(message.repeatedForeignEnum[0] === ForeignEnum.FOREIGN_FOO);
   // TODO: add support for packed
   // TODO: add support for oneof
+
+  return true;
+}
+
+
+export function encodeProto3(): Uint8Array {
+  const message = new TestAllTypes3();
+
+  return Protobuf.encode<TestAllTypes3>(message, TestAllTypes3.encode);
+}
+
+export function decodeProto3(bytes: Uint8Array): bool {
+
+  const message = Protobuf.decode<TestAllTypes3>(bytes, TestAllTypes3.decode);
+  assert(message != null);
 
   return true;
 }
